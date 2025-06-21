@@ -56,6 +56,8 @@ wsServer.on('request', function (request: request) {
 });
 
 function messageHandler(ws: connection, message: IncomingMessages) {
+    console.log("Incoming Message " + JSON.stringify(message))
+
     if (message.type === SupportedMessage.JoinRoom) {
         const payload = message.payload;
         userManager.adduser(payload.name, payload.userId, payload.roomId, ws)

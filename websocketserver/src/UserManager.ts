@@ -19,6 +19,11 @@ export class UserManager {
     }
 
     adduser(name: string, userId: string, roomId: string, socket: connection) {
+        console.log({
+            id: userId,
+            name,
+            conn: socket
+        })
         if (!this.rooms.get(roomId)) {
             this.rooms.set(roomId, {
                 users: []
