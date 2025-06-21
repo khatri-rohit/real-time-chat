@@ -8,11 +8,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "description": "",
   "dependencies": {
     "@types/node": "^24.0.3",
     "@types/websocket": "^1.0.10",
-    "websocket": "^1.0.35"
+    "websocket": "^1.0.35",
+    "zod": "^3.25.67"
   }
 }

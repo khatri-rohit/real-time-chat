@@ -31,28 +31,31 @@ export class InMemoryStore implements Store {
     addChat(userId: UserId, roomId: string, name: string, message: string) {
         const room = this.store.get(roomId)
         if (!room) {
-            return []
+            return null
         }
-        room.chats.push({
+        const chat = {
             id: (golbalChatId++).toString(),
             userId,
             name,
             message,
             upvotes: []
-        })
-
+        }
+        room.chats.push(chat)
+        return chat;
     }
 
-    upvote(userId: UserId, roomId: string, chatId: string) {
+    upvote(userId: UserId, roomId: string, chatId: string): Chat | null {
         const room = this.store.get(roomId)
         if (!room) {
-            return
+            return null;
         }
         // TODO: Make this more efficient
         const chat = room.chats.find((({ id }) => id === chatId))
-        if (chat) {
-            chat.upvotes.push(userId)
-        }
 
+        if (!chat) {
+            return null;
+        }
+        chat.upvotes.push(userId)
+        return chat;
     }
 }
