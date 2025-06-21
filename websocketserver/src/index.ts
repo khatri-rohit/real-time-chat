@@ -20,7 +20,7 @@ const store = new InMemoryStore();
 
 const wsServer = new WebSocketServer({
     httpServer: httpServer,
-    autoAcceptConnections: false
+    autoAcceptConnections: true
 });
 
 function originIsAllowed(origin: string) {

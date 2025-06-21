@@ -29,6 +29,11 @@ export class UserManager {
             name,
             conn: socket
         })
+        console.log({
+            id: userId,
+            name,
+            conn: socket
+        })
     }
 
     removeUser(roomId: string, userId: string) {
